@@ -37,7 +37,7 @@ require_once('navbar.php');
 
   <?php
   $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-  $sql = "SELECT sprint_id, goal  FROM SPRINT_DATA WHERE status = 'N' ORDER BY creation_date";
+  $sql = "SELECT sprint_id, goal  FROM SPRINT_DATA WHERE status = 'N' AND public = 2 ORDER BY creation_date";
   $result = mysqli_query($dbc, $sql);
   while ($row = mysqli_fetch_array($result)) {
     echo '<p style="color: #907558"><a href="sprints.php?id=' . $row['sprint_id'] . '"><img src="images/goButton.png" style="height: 30px; width: auto; padding-right: 1em;" alt="Brown button with the word \'Go\' in white" /></a>' . $row['goal'] . ' word Sprint</p>';
@@ -54,7 +54,7 @@ require_once('navbar.php');
 
   <?php
     $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-    $sql = "SELECT sprint_id, goal  FROM SPRINT_DATA WHERE status = 'P' ORDER BY creation_date";
+    $sql = "SELECT sprint_id, goal  FROM SPRINT_DATA WHERE status = 'P' AND public = 2 ORDER BY creation_date";
     $result = mysqli_query($dbc, $sql);
     while ($row = mysqli_fetch_array($result)) {
 

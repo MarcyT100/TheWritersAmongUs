@@ -38,7 +38,7 @@ require_once('navbar.php');
 
 <?php
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-$sql = "SELECT event_id, event_type, event_amount FROM EVENT_DATA WHERE event_status = 'N' ORDER BY creation_date";
+$sql = "SELECT event_id, event_type, event_amount FROM EVENT_DATA WHERE event_status = 'N' AND public = 2 ORDER BY creation_date";
 $result = mysqli_query($dbc, $sql);
 while ($row = mysqli_fetch_array($result)) {
   $currentEvent = null;
@@ -63,7 +63,7 @@ while ($row = mysqli_fetch_array($result)) {
 
 <?php
   $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-  $sql = "SELECT event_id, event_type, event_amount FROM EVENT_DATA WHERE event_status = 'P' ORDER BY creation_date";
+  $sql = "SELECT event_id, event_type, event_amount FROM EVENT_DATA WHERE event_status = 'P' AND public = 2 ORDER BY creation_date";
   $result = mysqli_query($dbc, $sql);
   while ($row = mysqli_fetch_array($result)) {
     $currentEvent = null;
